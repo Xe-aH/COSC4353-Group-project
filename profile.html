@@ -4,12 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>profile</title>
+<style>
+    body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #e1f5fe;
+    }
 
+    .login-container h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .login-container label,
+    .login-container input[type="text"],
+    .login-container input[type="password"],
+    .login-container button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background-color: #45a049;
+    }
+</style>
 
 </head>
 <body>
+    
+    <div class="login-container">
     <h1>Client Profile Management</h1>
-    <div class="container">
     <form action="" method="POST" onsubmit="return validateForm()">
       <label for="name">Full Name:</label>
       <input type="text" id="name" name="name" required>
@@ -35,7 +90,7 @@
     </div>
 
   <script>
-    
+
 //dropdown
     const states = [
     "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
