@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fuel Quote History</title>
+  <style>
+    /* CSS styles for the fuel quote history page */
+    body {
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .quote-history-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #e1f5fe;
+    }
+
+    .quote-history-container h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-history-container">
+    <h2>Fuel Quote History</h2>
+    <table id="quote-table">
+      <tr>
+        <th>Gallons Requested</th>
+        <th>Delivery Address</th>
+        <th>Delivery Date</th>
+        <th>Suggested Price / gallon</th>
+        <th>Total Amount Due</th>
+      </tr>
+      <!-- The rows for the fuel quotes will be inserted here by JavaScript -->
+    </table>
+  </div>
+
+  <script>
+    // JavaScript code to retrieve the fuel quote history from local storage and display it in the table
+    var quoteTable = document.getElementById("quote-table");
+    var fuelQuoteHistory = JSON.parse(localStorage.getItem("fuelQuoteHistory"));
+
+    if (fuelQuoteHistory !== null) {
+      for (var i = 0; i < fuelQuoteHistory.length; i++) {
+        var row = quoteTable.insertRow(-1);
+        row.insertCell(0).innerHTML = fuelQuoteHistory[i].gallonsRequested;
+        row.insertCell(1).innerHTML = fuelQuoteHistory[i].deliveryAddress;
+        row.insertCell(2).innerHTML = fuelQuoteHistory[i].deliveryDate;
+        row.insertCell(3).innerHTML = fuelQuoteHistory[i].suggestedPricePerGallon;
+        row.insertCell(4).innerHTML = fuelQuoteHistory[i].totalAmountDue;
+      }
+    }
+  </script>
+</body>
+</html>
