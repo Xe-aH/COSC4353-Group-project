@@ -5,15 +5,34 @@
     <style>
   body {
       background-color: #f5f5f5;
-      display: flex;
+      #display: flex;
+      text-align:center;
+      margin:auto;
       justify-content: center;
     #align-items: center;
       height: 100vh;
       margin: 0;
+      margin-top: 40%;
       padding: 0;
     }
-    .prices{
-        
+    div{
+        text-align:center;
+        width:50%;
+        margin:auto;
+        background-color:#e1f5fe;
+    }
+    table{
+        border-collapse:collapse;
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    table, th, td{
+        border: 1px solid #ccc;
+    }
+    th, td{
+        padding: 10px;
+        text-align:center;
     }
     </style>
 </head>
@@ -30,14 +49,20 @@
 
         </form>
     </div>
-    <div id="prices">
-        <p id ="output"> </p>
+    <div>
+    <table id="prices">
+        <tr>
+            <th> Location </th>
+            <th> Gallons </th>
+            <th> Cost </th>
+        </tr>
+    </table>
     </div>
     <script>
         document.getElementById("btn").addEventListener("click", function(event){
             var locationn = document.getElementById("location").value;
             var gallons = document.getElementById("gallons").value;
-            document.getElementById("output").innerHTML += "<br>" +  locationn + " " + gallons + " $" + (100*Math.random());
+            document.getElementById("prices").innerHTML += "<tr> <th>" +  locationn + "</th><th> " + gallons + "</th><th> $" + (100*Math.random()) + "</th>";
             return false;
         });
     </script>
