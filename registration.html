@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Registration</title>
+  <style>
+    /* CSS styles for the registration form */
+    body {
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .registration-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #e1f5fe;
+    }
+
+    .registration-container h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .registration-container label,
+    .registration-container input[type="text"],
+    .registration-container input[type="password"],
+    .registration-container button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .registration-container input[type="text"],
+    .registration-container input[type="password"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .registration-container button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .registration-container button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="registration-container">
+    <h2>User Registration</h2>
+    <form id="registration-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    // JavaScript code for handling form submission
+    document.getElementById("registration-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from submitting
+
+      // Get the form values
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Perform any necessary validation or additional logic here
+      // For demonstration purposes, we'll assume the registration is successful
+
+      // Store the user information in local storage
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+
+      // Redirect to the login page
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

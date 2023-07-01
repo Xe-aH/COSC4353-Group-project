@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Success</title>
+</head>
+<body>
+  <h2>Login Successful</h2>
+  <p>You have logged in successfully as <span id="username"></span>.</p>
+
+  <script>
+    // JavaScript code to get the username from the login form and display it on the page
+    var usernameElement = document.getElementById("username");
+    var username = localStorage.getItem("loggedInUsername");
+
+    if (username !== null && username !== "") {
+      usernameElement.textContent = username;
+    } else {
+      usernameElement.textContent = "unknown user";
+    }
+  </script>
+</body>
+</html>
