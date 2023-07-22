@@ -76,7 +76,6 @@
   </div>
 
   <script>
-    // JavaScript code for handling form submission
     document.getElementById("registration-form").addEventListener("submit", function(event) {
       event.preventDefault(); // Prevent form from submitting
 
@@ -84,15 +83,29 @@
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
 
-      // Perform any necessary validation or additional logic here
-      // For demonstration purposes, we'll assume the registration is successful
+      // Create a new FormData object to send the form data to the backend
+      var formData = new FormData();
+      formData.append('username', username);
+      formData.append('password', password);
 
-      // Store the user information in local storage
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
-
-      // Redirect to the login page
-      window.location.href = "index.html";
+      // Send the form data to the backend using fetch API
+      fetch('/login_module/register/', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response) {
+        if (response.ok) {
+          // Registration successful, redirect to the login page
+          window.location.href = "index.html";
+        } else {
+          // Registration failed, handle the error
+          // You can display an error message or perform other necessary actions
+          console.error('Registration failed');
+        }
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
     });
   </script>
 </body>

@@ -74,12 +74,13 @@
 <body>
   <div class="login-container">
     <h2>Login</h2>
-    <form id="login-form">
+    <form id="login-form" method="POST" action="/login_module/login/">
+      {% csrf_token %}
       <label for="username">Username:</label>
-      <input type="text" id="username" required>
+      <input type="text" id="username" name="username" required>
 
       <label for="password">Password:</label>
-      <input type="password" id="password" required>
+      <input type="password" id="password" name="password" required>
 
       <button type="submit">Login</button>
     </form>
@@ -88,52 +89,5 @@
       <p>Not a user yet? <a href="registration.html">Register here</a></p>
     </div>
   </div>
-
-  <script>
-    
-    document.getElementById("login-form").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent form from submitting
-
-      // Get the form values
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      // Perform a check to see if the user has an account and the password is correct
-      var isLoginSuccessful = checkUserCredentials(username, password);
-
-      if (isLoginSuccessful) {
-        // User login is successful
-        performLogin(username);
-      } else {
-        // User login is unsuccessful, show an error message
-        showErrorMessage();
-      }
-    });
-
-    function checkUserCredentials(username, password) {
-      // Implement your logic to check if the user credentials are valid
-      // This can involve making an API call, checking a database, or any other necessary method
-      // For demonstration purposes, we'll retrieve the stored username and password from localStorage
-      var storedUsername = localStorage.getItem("username");
-      var storedPassword = localStorage.getItem("password");
-
-      return username === storedUsername && password === storedPassword;
-    }
-
-    function performLogin(username) {
-      // Implement your logic to handle the login process
-      // This can involve redirecting the user to a new page or performing any other necessary action
-      // For demonstration purposes, we'll save the username to localStorage and redirect to the success page
-      localStorage.setItem("loggedInUsername", username);
-      window.location.href = "success.html";
-    }
-
-    function showErrorMessage() {
-      // Implement your logic to show an error message for unsuccessful login attempts
-      // This can involve displaying a message on the login form or using a custom error handling approach
-      // For demonstration purposes, we'll use the JavaScript `alert` function to show a simple message
-      alert("Invalid username or password. Please try again.");
-    }
-  </script>
 </body>
 </html>
