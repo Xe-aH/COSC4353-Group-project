@@ -4,64 +4,15 @@
   <title>Fuel Quote History</title>
   <style>
     /* CSS styles for the fuel quote history page */
-    body {
-      background-color: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-    }
-
-    .quote-history-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 80%;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #e1f5fe;
-    }
-
-    .quote-history-container h2 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    table, th, td {
-      border: 1px solid #ccc;
-    }
-
-    th, td {
-      padding: 10px;
-      text-align: center;
-    }
+    /* ... (your CSS styles) */
   </style>
-</head>
-<body>
-  <div class="quote-history-container">
-    <h2>Fuel Quote History</h2>
-    <table id="quote-table">
-      <tr>
-        <th>Gallons Requested</th>
-        <th>Delivery Address</th>
-        <th>Delivery Date</th>
-        <th>Suggested Price / gallon</th>
-        <th>Total Amount Due</th>
-      </tr>
-      <!-- The rows for the fuel quotes will be inserted here by JavaScript -->
-    </table>
-  </div>
 
   <script>
+    // JavaScript code to saveFuelQuoteToServer function
+    function saveFuelQuoteToServer(fuelQuote) {
+      // ... (the JavaScript code to send the AJAX request as shown in previous responses)
+    }
+
     // JavaScript code to retrieve the fuel quote history from local storage and display it in the table
     var quoteTable = document.getElementById("quote-table");
     var fuelQuoteHistory = JSON.parse(localStorage.getItem("fuelQuoteHistory"));
@@ -77,5 +28,20 @@
       }
     }
   </script>
+</head>
+<body>
+  <div class="quote-history-container">
+    <h2>Fuel Quote History</h2>
+    <table id="quote-table">
+      <tr>
+        <th>Gallons Requested</th>
+        <th>Delivery Address</th>
+        <th>Delivery Date</th>
+        <th>Suggested Price / gallon</th>
+        <th>Total Amount Due</th>
+      </tr>
+      <!-- The rows for the fuel quotes will be inserted here by JavaScript -->
+    </table>
+  </div>
 </body>
 </html>
