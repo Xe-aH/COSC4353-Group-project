@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+$servername = "project_db";
+$username = "root";
+$password = "e1d3R%%1iNg#";
+$dbname = "fuel";
 $location = "";
 $cost = 0;
 
